@@ -16,11 +16,25 @@ describe('Persistent Node Chat Server', function() {
     });
     dbConnection.connect();
 
-       var tablename = ""; // TODO: fill this out
+  var tablename = 'users'; // TODO: fill this out
 
     /* Empty the db table before each test so that multiple tests
      * (or repeated runs of the tests) won't screw each other up: */
-    dbConnection.query('truncate ' + tablename, done);
+    // dbConnection.query('truncate ' + tablename, done);
+    dbConnection.query('DELETE FROM `users`', (error) => {
+      if (error) {
+        console.log('ERROR OCCURED');
+      } else {
+        console.log('USERS TABLE DELETED');
+      }
+    });
+    dbConnection.query('DELETE FROM `messages`', (error) => {
+      if (error) {
+        console.log('ERROR OCCURED');
+      } else {
+        console.log('USERS MESSAGES DELETED');
+      }
+    });
   });
 
   afterEach(function() {
