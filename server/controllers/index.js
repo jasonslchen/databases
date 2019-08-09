@@ -50,6 +50,7 @@ module.exports = {
       })
     },
     post: function (req, res) {
+
       models.users.post(req.body, (err, result) => {
         if (err) {
           res.status(404).send('nope');

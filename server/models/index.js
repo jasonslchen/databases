@@ -40,6 +40,7 @@ module.exports = {
     post: function (user, callback) {
       db.query('INSERT INTO users(username) VALUES(?)' , [user.username], (err, results) => {
         if (err) {
+          console.log(err);
           callback(err);
         } else {
           callback(null, results);
