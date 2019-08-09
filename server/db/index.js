@@ -6,7 +6,7 @@ var mysql = require('mysql');
 
 var connection = mysql.createConnection({
   host: 'localhost',
-  port: 3000,
+  // port: 3000,
   user: 'student',
   password: 'student',
   database: 'chat'
@@ -14,16 +14,14 @@ var connection = mysql.createConnection({
 
 connection.connect((err) => {
   if (err) {
-    console.error('error connectiong: ' + err.stack);
-    return;
+    return console.error('error connecting');
+
   } else {
     console.log('Connected');
-
   }
-
-
 });
 
-connection.end();
 
-module.exports.connection = connection;
+// connection.end();
+
+module.exports = connection;
